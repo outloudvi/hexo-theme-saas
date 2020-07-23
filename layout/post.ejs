@@ -1,0 +1,34 @@
+<%- partial('_partial/header') %>
+
+<div class="columns is-centered is-mobile">
+    <main id="recent-post-list" class="column is-two-thirds-tablet is-full-mobile is-half-desktop">
+        <div class="box">
+            <div class="field is-grouped is-grouped-multiline">
+                <div class="control">
+                    <% page.tags.each(function (tag, j) { %>
+                    <a href="<%- url_for(`tags/${tag.name}`) %>">
+                        <span class="tag is-link">#<%= tag.name %></span>
+                    </a>
+                    <% }) %>
+                    <% if (page.oneof) { %>
+                    <a href="<%- url_for(`series/${page.oneof}`) %>">
+                        <span class="tag is-info">@<%= page.oneof %></span>
+                    </a>
+                    <% } %>
+                </div>
+            </div>
+            <h2 class="title is-4"><%= page.title %></h2>
+            <div class="my-3 has-text-grey-dark">
+                <span>Last update: <time datetime="<%= date_xml(page.updated) %>"
+                        itemprop="dateModified"><%= date(page.updated, config.date_format) %></time></span>
+                <span class="is-pulled-right is-hidden-mobile">
+                    <%- partial('_partial/word_count', {post: page}) %>
+                </span>
+            </div>
+            <hr>
+            <div class="content">
+                <%- page.content %>
+            </div>
+        </div>
+    </main>
+</div>
