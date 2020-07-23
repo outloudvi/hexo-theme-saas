@@ -3,8 +3,19 @@
 <div class="columns is-centered is-mobile">
     <main id="archive-list" class="column is-two-thirds-tablet is-full-mobile is-half-desktop">
         <h2 class="title h2">All posts by tags</h2>
-        <% site.tags.sort('name', 'asc').map(function(tag){  %>
+
         <div class="box">
+            <div class="tags are-medium">
+                <% site.tags.sort('name', 'asc').map(function(tag){  %>
+                <a href="#tag-<%= tag.name %>" class="tag is-link is-medium">
+                    #<%= tag.name %>
+                </a>
+                <% }) %>
+            </div>
+        </div>
+
+        <% site.tags.sort('name', 'asc').map(function(tag){  %>
+        <div id="tag-<%= tag.name %>" class="box">
             <h4 class="title is-4">
                 <a href="<%= url_for(`tags/${tag.name}`) %>">
                     #<%= tag.name %>
