@@ -1,23 +1,8 @@
-<header>
-    <div id="title" class="is-size-1 has-text-primary has-text-centered">
-        <%= config.title %>
-    </div>
-    <% if (config.subtitle) { %>
-    <div id="subtitle" class="is-size-4 has-text-grey has-text-centered">
-        <%= config.subtitle %>
-    </div>
-    <% } %>
-</header>
-
-<div class="has-text-centered mt-3">
-    <span class="ml-1 mr-1">Home</span>
-    <a href="<%- url_for('archives') %>" class="ml-1 mr-1">Archive</a>
-    <a href="<%- url_for('tags') %>" class="ml-1 mr-1">Tags</a>
-</div>
+<%- partial('_partial/header') %>
 
 <div class="columns is-centered is-mobile">
     <main id="recent-post-list" class="column is-two-thirds-tablet is-full-mobile is-half-desktop">
-        <% var show_posts = site.posts.filter( post => !(post.hidden)).sort('updated', 'desc').limit(theme.index_post_count || 5) %>
+        <% let show_posts = site.posts.filter( post => !(post.hidden)).sort('updated', 'desc').limit(theme.index_post_count || 5) %>
         <% show_posts.each(function(post, i){ %>
         <div class="box">
             <div class="field is-grouped is-grouped-multiline">
