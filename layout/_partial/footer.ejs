@@ -1,0 +1,8 @@
+<footer id="footer" class="has-text-centered my-4">
+  &copy; 2015 - <%= new Date().getFullYear() %> <%= config.author ||
+  config.title %><% if (theme.license) { %>,
+  <% if (theme.license.url) { %><a href="<%= url_for(theme.license.url) %>"><% } %>
+    <%= theme.license.name %>
+    <% if (theme.license.url) { %></a><% } %>
+  <% } %>
+</footer>

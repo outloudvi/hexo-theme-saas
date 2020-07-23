@@ -1,0 +1,17 @@
+favicon: /favicon.ico
+rss: true
+
+license:
+  name: CC BY-NC-SA 4.0
+  url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+index_post_count: 5
+read_cpm: 220
+
+# Don't change anything below
+
+node_sass:
+  debug: true
+  includePaths:
+    - node_modules
+    - themes/saas/node_modules
