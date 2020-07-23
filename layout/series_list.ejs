@@ -1,0 +1,28 @@
+<%- partial('_partial/header') %>
+
+<div class="columns is-centered is-mobile">
+    <main id="archive-list" class="column is-two-thirds-tablet is-full-mobile is-half-desktop">
+        <h2 class="title h2">All series</h2>
+        <% for (const [key, value] of Object.entries(page.series)){ %>
+        <div id="series-<%= key %>" class="box">
+            <h4 class="title is-4">
+                <a href="<%= url_for(`series/${key}`) %>">
+                    <%= value.title %>
+                </a>
+                <span class="is-size-5">@<%= key %></span>
+            </h4>
+            <div class="content">
+                <%- markdown(value.description) %>
+            </div>
+            <ul>
+                <% site.posts.filter(x => x.oneof == key).sort('date', 'asc').map(function(post){  %>
+                <li>
+                    <a href="<%= url_for(post.path) %>"><%= post.title %></a> -
+                    <span class="has-text-grey"><%= date(post.date, config.date_format) %></span>
+                </li>
+                <% }) %>
+            </ul>
+        </div>
+        <% } %>
+    </main>
+</div>
