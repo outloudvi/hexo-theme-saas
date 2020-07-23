@@ -1,0 +1,29 @@
+<% if (page.total > 1) { %>
+<div id="pagination" class="is-centered has-text-centered">
+    <div class="field has-addons has-addons-centered">
+        <% if (page.prev) { %>
+        <p class="control">
+            <a href="<%- url_for(page.prev_link) %>">
+                <button class="button">
+                    <span>Prev</span>
+                </button>
+            </a>
+        </p>
+        <% } %>
+        <p class="control">
+            <button class="button">
+                <span>Page <%= page.current %></span>
+            </button>
+        </p>
+        <% if (page.next) { %>
+        <p class="control">
+            <a href="<%- url_for(page.next_link) %>">
+                <button class="button">
+                    <span>Next</span>
+                </button>
+            </a>
+        </p>
+        <% } %>
+    </div>
+</div>
+<% } %>
