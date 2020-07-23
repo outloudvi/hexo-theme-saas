@@ -11,8 +11,8 @@
 
 <div class="has-text-centered mt-3">
     <span class="ml-1 mr-1">Home</span>
-    <a href="archives" class="ml-1 mr-1">Archive</a>
-    <a href="tags" class="ml-1 mr-1">Tags</a>
+    <a href="<%- url_for('archives') %>" class="ml-1 mr-1">Archive</a>
+    <a href="<%- url_for('tags') %>" class="ml-1 mr-1">Tags</a>
 </div>
 
 <div class="columns is-centered is-mobile">
@@ -49,10 +49,8 @@
             </div>
         </div>
         <% }); %>
-        <a href="archives">
+        <a href="<%- url_for('archives') %>">
             <button class="button is-primary is-light">More posts</button>
         </a>
     </main>
 </div>
-
-<%- css('css/index') %>
