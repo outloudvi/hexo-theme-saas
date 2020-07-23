@@ -1,7 +1,9 @@
 <header>
-    <div id="title" class="is-size-1 has-text-primary has-text-centered">
-        <%= config.title %>
-    </div>
+    <a href="<%- url_for('/') %>">
+        <div id="title" class="is-size-1 has-text-primary has-text-centered">
+            <%= config.title %>
+        </div>
+    </a>
     <% if (config.subtitle) { %>
     <div id="subtitle" class="is-size-4 has-text-grey has-text-centered">
         <%= config.subtitle %>
