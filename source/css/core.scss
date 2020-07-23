@@ -4,3 +4,16 @@
 $box-radius: none;
 
 @import 'bulma/bulma';
+
+#bgTitle {
+  font-size: 12rem;
+  opacity: 0.5;
+  pointer-events: none;
+  position: absolute;
+  top: -130px;
+  z-index: 0;
+}
+
+header {
+  margin-top: 100px;
+}

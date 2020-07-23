@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html<%= config.language ? " lang=" + config.language.substring(0, 2) : ""%>>
-<%- partial('_partial/head') %>
-<body>
-    <%- body %>
-    <%- partial('_partial/footer') %>
-</body>
-</html>
+    <%- partial('_partial/head') %>
+
+    <body>
+        <div id="bgTitle" class="has-text-grey-lighter"><%= config.title %></div>
+        <%- body %>
+        <%- partial('_partial/footer') %>
+    </body>
+
+    </html>
