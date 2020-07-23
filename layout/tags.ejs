@@ -1,0 +1,43 @@
+<header>
+    <div id="title" class="is-size-1 has-text-primary has-text-centered">
+        Tags
+    </div>
+</header>
+
+<div class="has-text-centered mt-3">
+    <a href="<%- url_for('/') %>" class="ml-1 mr-1">Home</a>
+    <a href="<%- url_for('archives') %>" class="ml-1 mr-1">Archive</a>
+    <a href="<%- url_for('tags') %>" class="ml-1 mr-1">Tags</a>
+</div>
+
+<div class="columns is-centered is-mobile">
+    <main id="archive-list" class="column is-two-thirds-tablet is-full-mobile is-half-desktop">
+        <h2 class="title h2">All posts by tags</h2>
+        <% site.tags.sort('name', 'asc').map(function(tag){  %>
+        <div class="box">
+            <h4 class="title is-4">
+                <a href="<%= url_for(`tags/${tag.name}`) %>">
+                    #<%= tag.name %>
+                </a>
+            </h4>
+            <ul>
+                <% let tag_post_count = theme.tag_post_count || 5 %>
+                <% tag.posts.sort('updated', 'desc').limit(tag_post_count).map(function(post){  %>
+                <li>
+                    <a href="<%= url_for(post.path) %>"><%= post.title %></a> -
+                    <span class="has-text-grey"><%= date(post.updated, config.date_format) %></span>
+                </li>
+                <% }) %>
+                <% if (tag.posts.length > tag_post_count) { %>
+                <li>
+                    <a href="<%= url_for(`tags/${tag.name}`) %>">
+                        <%= tag.posts.length - tag_post_count %> more
+                        post<%= partial('_partial/plural', {count: tag.posts.length - tag_post_count, es: false}) %>...
+                    </a>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+        <% }) %>
+    </main>
+</div>
