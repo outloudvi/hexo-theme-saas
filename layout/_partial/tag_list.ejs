@@ -1,0 +1,9 @@
+<div class="box">
+    <div class="tags are-medium">
+        <% tags.map(function(tag){  %>
+        <a href="#tag-<%= tag.name %>" class="tag is-link is-medium">
+            <%= tag.name %>
+        </a>
+        <% }) %>
+    </div>
+</div>
