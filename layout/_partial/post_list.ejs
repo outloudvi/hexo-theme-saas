@@ -1,0 +1,38 @@
+<div class="columns is-centered is-mobile">
+    <main id="archive-list" class="column is-two-thirds-tablet is-full-mobile is-half-desktop">
+        <h2 class="title h2"><%= title %></h2>
+        <%- partial('_partial/paginator') %>
+        <% page.posts.filter( post => !(post.hidden)).sort('updated', 'desc').each(function(post, i){ %>
+        <div class="box">
+            <div class="field is-grouped is-grouped-multiline">
+                <div class="control">
+                    <% post.tags.each(function (tag, j) { %>
+                    <a href="<%- url_for(`tags/${tag.name}`) %>">
+                        <span class="tag is-link">#<%= tag.name %></span>
+                    </a>
+                    <% }) %>
+                    <% if (post.oneof) { %>
+                    <a href="<%- url_for(`series/${post.oneof}`) %>">
+                        <span class="tag is-info">@<%= post.oneof %></span>
+                    </a>
+                    <% } %>
+                </div>
+            </div>
+            <a href="<%- url_for(post.path) %>">
+                <h2 class="title is-4"><%= post.title %></h2>
+            </a>
+            <% if (post.excerpt) { %>
+            <div class="mx-1 my-3"><%- post.excerpt %></div>
+            <% } %>
+            <div class="my-3 has-text-grey-dark">
+                <span>Last update: <time datetime="<%= date_xml(post.updated) %>"
+                        itemprop="dateModified"><%= date(post.updated, config.date_format) %></time></span>
+                <span class="is-pulled-right is-hidden-mobile">
+                    <%- partial('_partial/word_count', {post}) %>
+                </span>
+            </div>
+        </div>
+        <% }); %>
+        <%- partial('_partial/paginator') %>
+    </main>
+</div>
