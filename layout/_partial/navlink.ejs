@@ -1,0 +1,5 @@
+<% if (is_current(url)) { %>
+<span class="ml-1 mr-1"><%= title %></span>
+<% } else { %>
+<a class="ml-1 mr-1" href="<%= url %>"><%= title %></a>
+<% } %>
