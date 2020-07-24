@@ -1,3 +1,7 @@
 <%- partial('_partial/header') %>
 
+<% if (page.year) { %>
+<%- partial('_partial/post_list', {title: `All posts in ${page.year}`}) %>
+<% } else { %>
 <%- partial('_partial/post_list', {title: 'All posts'}) %>
+<% } %>
