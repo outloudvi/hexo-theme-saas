@@ -1,3 +1,8 @@
 <%- partial('_partial/header') %>
 
-<%- partial('_partial/post_list', {title: `#${page.tag}`}) %>
+<div class="columns is-centered is-mobile">
+    <main id="archive-list" class="column is-two-thirds-tablet is-full-mobile is-half-desktop">
+        <h2 class="title h2">#<%= page.tag %></h2>
+        <%- partial('_partial/post_list', {title: `#${page.tag}`}) %>
+    </main>
+</div>

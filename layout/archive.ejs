@@ -1,7 +1,17 @@
 <%- partial('_partial/header') %>
 
-<% if (page.year) { %>
-<%- partial('_partial/post_list', {title: `All posts in ${page.year}`}) %>
-<% } else { %>
-<%- partial('_partial/post_list', {title: 'All posts'}) %>
-<% } %>
+<div class="columns is-centered is-mobile">
+    <main id="archive-list" class="column is-two-thirds-tablet is-full-mobile is-half-desktop">
+        <% if (is_month()) { %>
+        <h2 class="title h2">All posts in <%= page.year %>/<%= page.month %></h2>
+        <%- partial('_partial/post_list') %>
+        <% } else if (is_year()) { %>
+        <h2 class="title h2">All posts in <%= page.year %></h2>
+        <%- partial('_partial/post_list') %>
+        <% } else { %>
+        <h2 class="title h2">All posts</h2>
+        <%- partial('_partial/post_list') %>
+        <% } %>
+
+    </main>
+</div>
