@@ -12,9 +12,23 @@ $box-radius: none;
   position: absolute;
   top: -130px;
   user-select: none;
-  z-index: 0;
+  z-index: -1;
 }
 
-header {
+header.main {
   margin-top: 100px;
+}
+
+header.bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 3vh 2vw;
+  @media (max-width: 768px) {
+    padding: 3vh 5vw;
+  }
+  @media (min-width: 1024px) {
+    position: sticky;
+  }
+  top: 0;
+  width: 100%;
 }
