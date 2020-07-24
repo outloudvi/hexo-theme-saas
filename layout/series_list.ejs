@@ -6,10 +6,8 @@
         <% for (const [key, value] of Object.entries(page.series)){ %>
         <div id="series-<%= key %>" class="box">
             <h4 class="title is-4">
-                <a href="<%= url_for(`series/${key}`) %>">
-                    <%= value.title %>
-                </a>
-                <span class="is-size-5">@<%= key %></span>
+                <%= value.title %>
+                <span class="is-size-5 has-text-grey">@<%= key %></span>
             </h4>
             <div class="content">
                 <%- markdown(value.description) %>
