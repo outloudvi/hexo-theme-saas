@@ -4,7 +4,7 @@
     <main id="archive-list" class="column is-two-thirds-tablet is-full-mobile is-half-desktop">
         <h2 class="title h2">All posts by tags</h2>
 
-        <%- partial('_partial/tag_list', {tags: site.tags.sort('name', 'asc').map(x => { return {...x, name: '#' + x.name}; })}) %>
+        <%- partial('_partial/tag_list', {tags: site.tags.sort('name', 'asc').map(x => { return {...x, name: '#' + x.name, link: '#tag-' + x.name}; })}) %>
 
         <% site.tags.sort('name', 'asc').map(function(tag){  %>
         <div id="tag-<%= tag.name %>" class="box">
