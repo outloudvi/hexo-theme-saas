@@ -2,16 +2,38 @@
 
 <div class="columns is-centered is-mobile">
     <main id="archive-list" class="column is-two-thirds-tablet is-full-mobile is-half-desktop">
+        <% console.log(page) %>
         <% if (is_month()) { %>
-        <h2 class="title h2">All posts in <%= page.year %>/<%= page.month %></h2>
+        <h2 class="title h2">All posts in <%= page.year %>/<%= leftpadZeroForTwo(page.month) %></h2>
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+                <li><a href="<%= url_for('/') %>">Blog</a></li>
+                <li><a href="<%= url_for('/archives') %>">Archive</a></li>
+                <li><a href="<%= url_for(`/archives/${page.year}`) %>"><%= page.year %></a></li>
+                <li class="is-active"><a href="#" aria-current="page"><%= leftpadZeroForTwo(page.month) %></a></li>
+            </ul>
+        </nav>
         <%- partial('_partial/post_list') %>
         <% } else if (is_year()) { %>
         <h2 class="title h2">All posts in <%= page.year %></h2>
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+                <li><a href="<%= url_for('/') %>">Blog</a></li>
+                <li><a href="<%= url_for('/archives') %>">Archive</a></li>
+                <li class="is-active"><a href="#" aria-current="page"><%= page.year %></a></li>
+            </ul>
+        </nav>
+        <% let months = dedup(page.posts.map(x => x.date.month() + 1)).map(x => { x = leftpadZeroForTwo(x); return {name: `${page.year}/${x}`, link: url_for(`/archives/${page.year}/${x}`)} }) %>
+        <% months = sortByKey(months, "name") %>
+        <% console.log(months) %>
+        <%- partial('_partial/tag_list', {tags: months}) %>
         <%- partial('_partial/post_list') %>
         <% } else { %>
         <h2 class="title h2">All posts</h2>
+        <% let years = dedup(site.posts.map(x => x.date.year())).map(x => {return {name: x, link: url_for(`/archives/${x}`)} }) %>
+        <% years.sort() %>
+        <%- partial('_partial/tag_list', {tags: years}) %>
         <%- partial('_partial/post_list') %>
         <% } %>
-
     </main>
 </div>
