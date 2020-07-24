@@ -9,7 +9,7 @@
   <link rel="shortcut icon" href="<%= url_for(theme.favicon) %>" />
   <% } %>
   <!-- title -->
-  <title><%= page.title %> | <%= config.title %></title>
+  <title><% if (page.title) { %><%= page.title %> | <% } %><%= config.title %></title>
   <!-- styles -->
   <%- css('css/core') %>
   <!-- rss -->
