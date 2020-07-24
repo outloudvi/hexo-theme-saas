@@ -22,6 +22,8 @@
     <div class="mx-1 my-3"><%- post.excerpt %></div>
     <% } %>
     <div class="my-3 has-text-grey-dark">
+        <span>Created: <time datetime="<%= date_xml(post.date) %>"
+                itemprop="dateModified"><%= date(post.date, config.date_format) %></time></span>,
         <span>Last update: <time datetime="<%= date_xml(post.updated) %>"
                 itemprop="dateModified"><%= date(post.updated, config.date_format) %></time></span>
         <span class="is-pulled-right is-hidden-mobile">
