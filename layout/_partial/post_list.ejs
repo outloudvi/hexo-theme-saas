@@ -28,7 +28,7 @@
                 itemprop="dateModified"><%= date(post.date, config.date_format) %></time></span>,
         <span>Last update: <time datetime="<%= date_xml(post.updated) %>"
                 itemprop="dateModified"><%= date(post.updated, config.date_format) %></time></span>
-        <span class="is-pulled-right is-hidden-mobile">
+        <span class="is-pulled-right is-hidden-mobile is-hidden-tablet">
             <%- partial('_partial/word_count', {post}) %>
         </span>
     </div>
