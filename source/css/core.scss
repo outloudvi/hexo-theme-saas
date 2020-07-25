@@ -7,10 +7,13 @@ $box-radius: none;
 
 #bgTitle {
   font-size: 12rem;
-  opacity: 0.5;
-  pointer-events: none;
   position: absolute;
   top: -130px;
+}
+
+.bgText {
+  opacity: 0.3;
+  pointer-events: none;
   user-select: none;
   z-index: -1;
 }
