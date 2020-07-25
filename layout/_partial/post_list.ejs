@@ -9,7 +9,7 @@
             </a>
             <% }) %>
             <% if (post.oneof) { %>
-            <a href="<%- url_for(`series/${post.oneof}`) %>">
+            <a href="<%- url_for(`series#series-${post.oneof}`) %>">
                 <span class="tag is-info">@<%= post.oneof %></span>
             </a>
             <% } %>

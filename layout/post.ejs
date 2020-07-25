@@ -11,7 +11,7 @@
                     </a>
                     <% }) %>
                     <% if (page.oneof) { %>
-                    <a href="<%- url_for(`series/${page.oneof}`) %>">
+                    <a href="<%- url_for(`series#series-${page.oneof}`) %>">
                         <span class="tag is-info">@<%= page.oneof %></span>
                     </a>
                     <% } %>
