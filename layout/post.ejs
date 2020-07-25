@@ -6,9 +6,7 @@
             <div class="field is-grouped is-grouped-multiline">
                 <div class="control">
                     <% page.tags.each(function (tag, j) { %>
-                    <a href="<%- url_for(`tags/${tag.name}`) %>">
-                        <span class="tag is-link">#<%= tag.name %></span>
-                    </a>
+                    <%- partial('_partial/tag_tag', {name: tag.name}) %>
                     <% }) %>
                     <% if (page.oneof) { %>
                     <%- partial('_partial/series_tag', {name: page.oneof}) %>
