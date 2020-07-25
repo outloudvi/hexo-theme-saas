@@ -29,6 +29,17 @@
   }
 }
 
+#toc {
+  position: relative;
+  .bgText {
+    font-size: 2rem;
+    position: absolute;
+    top: 3px;
+    right: 15px;
+    z-index: 0;
+  }
+}
+
 .bgText {
   opacity: 0.3;
   pointer-events: none;
@@ -48,4 +59,23 @@ header.bar {
   }
   top: 0;
   width: 100%;
+}
+
+#tocList {
+  font-size: 0.9rem;
+  overflow: hidden;
+  max-height: 1300px;
+  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+  ol {
+    margin-left: 0.5em;
+    margin-top: 0.1em;
+    list-style-type: none;
+  }
+  li {
+    list-style-type: none;
+  }
+}
+
+.gone {
+  max-height: 0 !important;
 }

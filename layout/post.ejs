@@ -19,9 +19,38 @@
                 </span>
             </div>
             <hr>
+            <% if (toc(page.content).length > 0) { %>
+            <div class="card mb-5">
+                <div id="toc" class="card-content py-2">
+                    <button id="btnHideToc" class="button is-small is-link is-light mb-2">Hide TOC</button>
+                    <button id="btnShowToc" class="button is-small is-link is-light mb-2" style="display: none;">Display
+                        TOC</button>
+                    <div class="bgText">TOC</div>
+                    <div id="tocList" class="content">
+                        <%- toc(page.content) %>
+                    </div>
+                </div>
+            </div>
+            <% } %>
             <div class="content">
                 <%- page.content %>
+            </div>
+            <hr>
+            <div class="field">
+                Permalink: <a href="<%= page.permalink %>"><%= page.permalink %></a>
+            </div>
+            <div class="field is-grouped is-grouped-multiline">
+                <div class="control">
+                    <% page.tags.each(function (tag, j) { %>
+                    <%- partial('_partial/tag_tag', {name: tag.name}) %>
+                    <% }) %>
+                    <% if (page.oneof) { %>
+                    <%- partial('_partial/series_tag', {name: page.oneof}) %>
+                    <% } %>
+                </div>
             </div>
         </div>
     </main>
 </div>
+
+<%- js('js/post') %>
