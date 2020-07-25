@@ -1,9 +1,16 @@
 @charset 'utf-8';
 @import './colors';
 
-$box-radius: none;
-
 @import 'bulma/bulma';
+
+.box:not(.no-box-animation) {
+  transition: transform 0.3s, background-color 0.3s, box-shadow 0.6s;
+}
+
+.box:hover:not(.no-box-animation) {
+  box-shadow: 0 1em 2em 0.25em rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
 
 #bgTitle {
   font-size: 12rem;
