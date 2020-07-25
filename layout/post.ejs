@@ -15,8 +15,7 @@
             </div>
             <h2 class="title is-3"><%= page.title %></h2>
             <div class="my-3 has-text-grey-dark">
-                <span>Last update: <time datetime="<%= date_xml(page.updated) %>"
-                        itemprop="dateModified"><%= date(page.updated, config.date_format) %></time></span>
+                <%- partial('_partial/create_update', {post: page}) %>
                 <span class="is-pulled-right is-hidden-mobile">
                     <%- partial('_partial/word_count', {post: page}) %>
                 </span>
