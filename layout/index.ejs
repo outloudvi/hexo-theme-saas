@@ -13,9 +13,7 @@
                     </a>
                     <% }) %>
                     <% if (post.oneof) { %>
-                    <a href="<%- url_for(`series#series-${post.oneof}`) %>"></a>
-                    <span class="tag is-info">@<%= post.oneof %></span>
-                    </a>
+                    <%- partial('_partial/series_tag', {name: post.oneof}) %>
                     <% } %>
                 </div>
             </div>
