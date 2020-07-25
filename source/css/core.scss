@@ -11,6 +11,16 @@ $box-radius: none;
   top: -130px;
 }
 
+#hitokotoQuote {
+  position: relative;
+  .bgText {
+    font-size: 2rem;
+    position: absolute;
+    right: 15px;
+    z-index: 0;
+  }
+}
+
 .bgText {
   opacity: 0.3;
   pointer-events: none;
