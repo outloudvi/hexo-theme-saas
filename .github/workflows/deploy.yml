@@ -22,8 +22,8 @@ jobs:
       - name: Install and build
         run: |
           cd ../..
-          yarn
-          yarn global add hexo-cli
+          npm install
+          npm install -g hexo-cli
           hexo generate
 
       - name: Deploy
