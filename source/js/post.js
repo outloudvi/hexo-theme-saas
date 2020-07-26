@@ -19,8 +19,10 @@ const tocList = document.querySelector('#tocList')
 })()
 
 document.addEventListener('DOMContentLoaded', () => {
+  // eslint-disable-next-line no-undef
   if (hljs) {
-    hljs.initHighlightingOnLoad()
+    // eslint-disable-next-line no-undef
+    hljs.initHighlighting()
     document.querySelectorAll('pre > code').forEach((x) => {
       x.parentElement.style.borderRadius = '3px'
       x.parentElement.style.padding = '1.5px'
@@ -32,6 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
         .filter((x) => x.startsWith('language-'))
       if (langList.length) {
         langName = langList[0].replace(/^language-/, '')
+      }
+      if (langName === '') {
+        langName = x.className.split(' ').filter((x) => x !== 'hljs')[0] || ''
       }
       bgText.className = 'bgText codeLang'
       bgText.innerText = langName
