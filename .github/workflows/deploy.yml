@@ -13,7 +13,7 @@ jobs:
       - name: Checkout unittest
         run: |
           pwd
-          git clone https://github.com/hexojs/hexo-theme-unit-test
+          git clone https://github.com/hexojs/hexo-theme-unit-test .
           ls -lah
           mkdir -p theme/landscape
           cd theme/landscape
