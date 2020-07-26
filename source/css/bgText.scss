@@ -1,0 +1,29 @@
+#bgTitle {
+  font-size: 12rem;
+  top: -130px;
+  z-index: -1;
+}
+
+#hitokotoQuote,
+#toc {
+  position: relative;
+}
+
+#hitokotoQuote .bgText {
+  bottom: 3px;
+  right: 15px;
+}
+
+#toc .bgText {
+  right: 15px;
+  top: 3px;
+}
+
+.bgText {
+  font-size: 2rem;
+  opacity: 0.3;
+  pointer-events: none;
+  position: absolute;
+  user-select: none;
+  z-index: 0;
+}

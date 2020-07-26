@@ -1,5 +1,6 @@
 @charset 'utf-8';
 @import './colors';
+@import './bgText';
 
 @import 'bulma/bulma';
 
@@ -10,41 +11,6 @@
 .box:hover:not(.no-box-animation) {
   box-shadow: 0 1em 2em 0.25em rgba(0, 0, 0, 0.1);
   transform: translateY(-5px);
-}
-
-#bgTitle {
-  font-size: 12rem;
-  position: absolute;
-  top: -130px;
-}
-
-#hitokotoQuote {
-  position: relative;
-  .bgText {
-    bottom: 3px;
-    font-size: 2rem;
-    position: absolute;
-    right: 15px;
-    z-index: 0;
-  }
-}
-
-#toc {
-  position: relative;
-  .bgText {
-    font-size: 2rem;
-    position: absolute;
-    top: 3px;
-    right: 15px;
-    z-index: 0;
-  }
-}
-
-.bgText {
-  opacity: 0.3;
-  pointer-events: none;
-  user-select: none;
-  z-index: -1;
 }
 
 header.bar {
