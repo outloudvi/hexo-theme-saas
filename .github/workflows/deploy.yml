@@ -23,12 +23,12 @@ jobs:
         run: |
           cd ../..
           yarn
-          yarn add hexo-cli
-          yarn run hexo generate
+          yarn global install hexo-cli
+          hexo generate
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          SSH: true
+          SSH: false
           BRANCH: gh-pages
           FOLDER: public
