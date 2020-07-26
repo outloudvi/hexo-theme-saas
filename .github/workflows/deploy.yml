@@ -10,22 +10,22 @@ jobs:
     if: "(!contains(github.event.commits[0].message, '[skip ci]')) && (!contains(github.event.commits[0].message, '[ci skip]'))"
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout unittest
-        run: |
-          pwd
-          git clone https://github.com/hexojs/hexo-theme-unit-test .
-          ls -lah
-          mkdir -p theme/landscape
-          cd theme/landscape
+      - name: Checkout unit test
+        uses: actions/checkout@v2
+        with:
+          repository: hexojs/hexo-theme-unit-test
+          path: .
 
       - name: Checkout theme
         uses: actions/checkout@v2
+        with:
+          path: theme/landscape
 
       - name: Install and build
         run: |
           pwd
+          ls -lahR
           npm install
-          ls -lah
           cd ../..
           pwd
           npm install
