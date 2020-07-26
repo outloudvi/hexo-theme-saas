@@ -23,7 +23,7 @@ jobs:
         run: |
           cd ../..
           yarn
-          yarn global install hexo-cli
+          yarn global add hexo-cli
           hexo generate
 
       - name: Deploy
