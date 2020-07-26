@@ -17,3 +17,25 @@ const tocList = document.querySelector('#tocList')
     hideBtn.style.display = 'inline-flex'
   })
 })()
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (hljs) {
+    hljs.initHighlightingOnLoad()
+    document.querySelectorAll('pre > code').forEach((x) => {
+      x.parentElement.style.borderRadius = '3px'
+      x.parentElement.style.padding = '1.5px'
+      x.parentElement.style.position = 'relative'
+      const bgText = document.createElement('div')
+      let langName = ''
+      const langList = x.className
+        .split(' ')
+        .filter((x) => x.startsWith('language-'))
+      if (langList.length) {
+        langName = langList[0].replace(/^language-/, '')
+      }
+      bgText.className = 'bgText codeLang'
+      bgText.innerText = langName
+      x.parentElement.append(bgText)
+    })
+  }
+})
