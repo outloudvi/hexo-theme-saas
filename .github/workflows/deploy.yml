@@ -25,8 +25,9 @@ jobs:
         run: |
           pwd
           ls -lahR
+          pushd theme/landscape
           npm install
-          cd ../..
+          popd
           pwd
           npm install
           ls -lah
