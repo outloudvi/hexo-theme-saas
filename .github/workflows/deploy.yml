@@ -12,7 +12,9 @@ jobs:
     steps:
       - name: Checkout unittest
         run: |
+          pwd
           git clone https://github.com/hexojs/hexo-theme-unit-test
+          ls -lah
           mkdir -p theme/landscape
           cd theme/landscape
 
@@ -21,8 +23,13 @@ jobs:
 
       - name: Install and build
         run: |
-          cd ../..
+          pwd
           npm install
+          ls -lah
+          cd ../..
+          pwd
+          npm install
+          ls -lah
           sudo npm install -g hexo-cli
           hexo generate
 
