@@ -1,1 +1,20 @@
-$color-accent-1: #2bbc8a;
+@mixin light-color-scheme {
+  --body-background-color: #fff;
+  --body-color: #4a4a4a;
+}
+
+@mixin dark-color-scheme {
+  --body-background-color: #222;
+  --body-color: #b5b5b5;
+}
+
+$body-background-color: var(--body-background-color);
+$body-color: var(--body-color);
+
+:root {
+  @include light-color-scheme;
+}
+
+:root[data-color-scheme='dark'] {
+  @include dark-color-scheme;
+}
