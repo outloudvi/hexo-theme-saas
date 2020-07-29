@@ -1,3 +1,9 @@
 .has-text-grey-dark {
   color: var(--body-color) !important;
 }
+
+@each $name, $pair in $colors {
+  &.is-#{$name}:not(.is-light) {
+    background-color: var(--widget-#{$name}-bgcolor);
+  }
+}
