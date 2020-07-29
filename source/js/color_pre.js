@@ -121,6 +121,7 @@
   window.forceColorScheme = forceColorScheme
   window.postLoad = () => {
     setButtonVisibility(currentTheme)
+    changeBulmaTheme(currentTheme)
     return defaultScheme == storageTheme
   }
 })()
