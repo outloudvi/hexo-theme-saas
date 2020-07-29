@@ -29,31 +29,34 @@
 
   function getDefaultScheme() {
     const res = getComputedStyle(CSS_BASE_ELEMENT).getPropertyValue(
-      CSS_SCHEME_KEY
+      CSS_SCHEME_KEY,
     )
     if (res.length)
       return res.replace(/\"/g, '').trim() === 'dark' ? DARK : LIGHT
     return res === 'dark' ? DARK : LIGHT
   }
 
-  function setButtonVisibility(light) {
-    if (light === LIGHT) {
-      Array.from(
-        document.getElementsByClassName(TOGGLE_BUTTON_ID[LIGHT])
-      ).forEach((x) => (x.style.display = 'none'))
-      Array.from(
-        document.getElementsByClassName(TOGGLE_BUTTON_ID[DARK])
-      ).forEach((x) => (x.style.display = 'block'))
-    } else {
-      Array.from(
-        document.getElementsByClassName(TOGGLE_BUTTON_ID[LIGHT])
-      ).forEach((x) => (x.style.display = 'block'))
-      Array.from(
-        document.getElementsByClassName(TOGGLE_BUTTON_ID[DARK])
-      ).forEach((x) => (x.style.display = 'none'))
-    }
+  function hideClass(cls) {
+    Array.from(document.getElementsByClassName(cls)).forEach(
+      (x) => (x.style.display = 'none'),
+    )
   }
 
+  function showClass(cls) {
+    Array.from(document.getElementsByClassName(cls)).forEach(
+      (x) => (x.style.display = 'block'),
+    )
+  }
+
+  function setButtonVisibility(light) {
+    if (light === LIGHT) {
+      hideClass(TOGGLE_BUTTON_ID[LIGHT])
+      showClass(TOGGLE_BUTTON_ID[DARK])
+    } else {
+      hideClass(TOGGLE_BUTTON_ID[DARK])
+      showClass(TOGGLE_BUTTON_ID[LIGHT])
+    }
+  }
   function changeBulmaTheme(light) {
     if (light == LIGHT) {
       document.querySelectorAll('.is-light-but-not-now').forEach((node) => {
@@ -88,29 +91,36 @@
     console.log(
       'You are at the %cdark%c side!',
       'color: #fff; background-color: #222;',
-      ''
+      '',
     )
     CSS_BASE_ELEMENT.setAttribute(DATA_NAME, 'dark')
   } else {
     console.log(
       'You are at the %clight%c side!',
       'color: #22966e; background-color: #eee;',
-      ''
+      '',
     )
     CSS_BASE_ELEMENT.setAttribute(DATA_NAME, 'light')
   }
-  if (storageRead()) {
-    forceColorScheme(storageRead())
+
+  let currentTheme = defaultScheme
+  let storageTheme = storageRead()
+
+  if (storageTheme) {
+    forceColorScheme(storageTheme, false)
+    currentTheme = storageTheme
   } else {
-    forceColorScheme(defaultScheme)
+    forceColorScheme(defaultScheme, false)
   }
 
-  // Export for color_post.js
+  // Exports for color_post.js
   window.DATA_NAME = DATA_NAME
-  window.getDefaultScheme = getDefaultScheme
-  window.storageRead = storageRead
-  window.forceColorScheme = forceColorScheme
   window.LIGHT = LIGHT
   window.DARK = DARK
   window.TOGGLE_BUTTON_ID = TOGGLE_BUTTON_ID
+  window.forceColorScheme = forceColorScheme
+  window.postLoad = () => {
+    setButtonVisibility(currentTheme)
+    return defaultScheme == storageTheme
+  }
 })()

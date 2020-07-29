@@ -1,4 +1,5 @@
 // post page loading only
+// some variables are exported to window. by color_pre.js
 // Thx Sukka: https://blog.skk.moe/post/hello-darkmode-my-old-friend/
 
 ;(() => {
@@ -10,23 +11,20 @@
     }
   }
 
-  function refreshCustomSettings() {
-    if (getDefaultScheme() == storageRead()) {
-      storageRemove()
-    }
-  }
-
   function setButtonHandler() {
     for (const i of [LIGHT, DARK]) {
       Array.from(document.getElementsByClassName(TOGGLE_BUTTON_ID[i])).forEach(
         (x) =>
           x.addEventListener('click', () => {
             forceColorScheme(i)
-          })
+          }),
       )
     }
   }
 
-  refreshCustomSettings()
   setButtonHandler()
+  const removeStorage = postLoad()
+  if (removeStorage) {
+    storageRemove()
+  }
 })()
