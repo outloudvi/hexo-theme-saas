@@ -5,7 +5,7 @@
         <% let show_posts = site.posts.filter( post => !(post.hidden)).sort('updated', 'desc').limit(theme.index_post_count || 5) %>
         <%- partial('_partial/post_list', {posts: show_posts, show_paginator: false}) %>
         <a href="<%- url_for('archives') %>">
-            <button class="button is-primary is-light">More posts</button>
+            <button class="button is-info is-light mb-4">More posts</button>
         </a>
         <%- partial('_partial/hitokoto') %>
     </main>
