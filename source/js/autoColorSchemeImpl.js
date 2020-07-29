@@ -56,16 +56,38 @@ function setButtonVisibility(light) {
   }
 }
 
+function changeBulmaTheme(light) {
+  if (light == LIGHT) {
+    document.querySelectorAll('.is-light-but-not-now').forEach((node) => {
+      let classes = node.className
+        .split(' ')
+        .filter((x) => x && x !== 'is-light-but-not-now')
+      classes.push('is-light')
+      node.className = classes.join(' ')
+    })
+  } else {
+    document.querySelectorAll('.is-light').forEach((node) => {
+      let classes = node.className
+        .split(' ')
+        .filter((x) => x && x !== 'is-light')
+      classes.push('is-light-but-not-now')
+      node.className = classes.join(' ')
+    })
+  }
+}
+
 function refreshCustomSettings() {
   if (getDefaultScheme() == storageRead()) {
     storageRemove()
   }
 }
 
-function forceColorScheme(light) {
+function forceColorScheme(light, write = true) {
+  if (light !== LIGHT && light !== DARK) return
   CSS_BASE_ELEMENT.setAttribute(DATA_NAME, light)
-  storageWrite(light)
+  if (write) storageWrite(light)
   setButtonVisibility(light)
+  changeBulmaTheme(light)
   console.log(`You are now at the ${light} side!`)
 }
 
@@ -98,9 +120,11 @@ function setButtonHandler() {
     )
     CSS_BASE_ELEMENT.setAttribute(DATA_NAME, 'light')
   }
-  refreshCustomSettings()
-  setButtonVisibility(defaultScheme)
-  if (storageRead()) {
-    forceColorScheme(storageRead())
-  }
+  requestAnimationFrame(() => {
+    if (storageRead()) {
+      forceColorScheme(storageRead())
+    } else {
+      forceColorScheme(defaultScheme)
+    }
+  })
 })()

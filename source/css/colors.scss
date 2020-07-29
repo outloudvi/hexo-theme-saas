@@ -1,15 +1,36 @@
 @mixin light-color-scheme {
-  --body-background-color: #fff;
   --body-color: #4a4a4a;
+  --body-background-color: #f3f3f3;
+  --box-color: var(--body-color);
+  --box-background-color: #fff;
+  --title-color: #363636;
+  --link: #3273dc;
+  --link-hover: var(--title-color);
+  --bg: #f5f5f5;
 }
 
 @mixin dark-color-scheme {
-  --body-background-color: #222;
-  --body-color: #b5b5b5;
+  --body-color: #e4e4e4;
+  --body-background-color: #1a1a1a;
+  --box-background-color: #2b2d2f;
+  --title-color: #ddd;
+  --link: #47a2e0;
+  --bg: #1c1c1c;
 }
 
 $body-background-color: var(--body-background-color);
 $body-color: var(--body-color);
+$box-color: var(--box-color);
+$box-background-color: var(--box-background-color);
+$text-strong: var(--text-strong);
+$title-color: var(--title-color);
+$link: var(--link);
+$link-hover: var(--link-hover);
+$code-background: var(--bg);
+
+.has-text-grey-dark {
+  color: var(--body-color) !important;
+}
 
 :root {
   @include light-color-scheme;
