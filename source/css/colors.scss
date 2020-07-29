@@ -28,10 +28,6 @@ $link: var(--link);
 $link-hover: var(--link-hover);
 $code-background: var(--bg);
 
-.has-text-grey-dark {
-  color: var(--body-color) !important;
-}
-
 :root {
   @include light-color-scheme;
 }
