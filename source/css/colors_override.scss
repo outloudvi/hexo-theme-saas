@@ -2,8 +2,16 @@
   color: var(--body-color) !important;
 }
 
-@each $name, $pair in $colors {
-  &.is-#{$name}:not(.is-light) {
-    background-color: var(--widget-#{$name}-bgcolor);
+.notification {
+  @each $name, $pair in $colors {
+    &.is-#{$name}:not(.is-light) {
+      background-color: var(--widget-#{$name}-bgcolor);
+    }
   }
+}
+
+.box .notification {
+  border-radius: 0;
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
 }

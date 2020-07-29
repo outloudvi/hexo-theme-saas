@@ -39,6 +39,8 @@ $title-color: var(--title-color);
 $link: var(--link);
 $link-hover: var(--link-hover);
 $code-background: var(--bg);
+$card-color: var(--body-color);
+$card-content-background-color: var(--box-background-color);
 
 :root {
   @include light-color-scheme;
