@@ -30,6 +30,11 @@
   --widget-danger-bgcolor: #c43854;
 }
 
+// We need to give it a color value. Don't worry, it will be overriden later.
+// https://github.com/jgthms/bulma/blob/5198384d0260eeadd69e6c416bcca8f5e394e6ab/sass/elements/tag.sass#L128-L130
+$tag-background-color: #f5f5f5;
+// ... then we can safely override $background.
+$background: var(--bg);
 $body-background-color: var(--body-background-color);
 $body-color: var(--body-color);
 $box-color: var(--box-color);
@@ -38,7 +43,6 @@ $text-strong: var(--text-strong);
 $title-color: var(--title-color);
 $link: var(--link);
 $link-hover: var(--link-hover);
-$code-background: var(--bg);
 $card-color: var(--body-color);
 $card-content-background-color: var(--box-background-color);
 
