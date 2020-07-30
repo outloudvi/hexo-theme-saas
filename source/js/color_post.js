@@ -2,7 +2,7 @@
 // some variables are exported to window. by color_pre.js
 // Thx Sukka: https://blog.skk.moe/post/hello-darkmode-my-old-friend/
 
-;(() => {
+(() => {
   function storageRemove(val) {
     try {
       localStorage.removeItem(DATA_NAME, val)

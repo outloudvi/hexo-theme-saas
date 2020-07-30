@@ -1,6 +1,6 @@
 // Thx Sukka: https://blog.skk.moe/post/hello-darkmode-my-old-friend/
 
-;(() => {
+(() => {
   const LIGHT = 'light'
   const DARK = 'dark'
 

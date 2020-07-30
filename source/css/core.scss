@@ -20,26 +20,28 @@ header.bar {
   display: flex;
   justify-content: space-between;
   padding: 3vh 2vw;
+  top: 0;
+  width: 100%;
   @media (max-width: 768px) {
     padding: 3vh 5vw;
   }
   @media (min-width: 1024px) {
     position: sticky;
   }
-  top: 0;
-  width: 100%;
 }
 
 #tocList {
   font-size: 0.9rem;
-  overflow: hidden;
   max-height: 1300px;
+  overflow: hidden;
   transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+
   ol {
+    list-style-type: none;
     margin-left: 0.5em;
     margin-top: 0.1em;
-    list-style-type: none;
   }
+
   li {
     list-style-type: none;
   }
