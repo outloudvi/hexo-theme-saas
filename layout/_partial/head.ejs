@@ -13,7 +13,7 @@
   <!-- styles -->
   <%- css('css/core') %>
   <!-- rss -->
-  <% if (theme.rss) { %>
+  <% if (theme.rss && config.feed) { %>
   <link rel="alternate" href="<%= url_for(config.feed.path) %>" title="<%= config.title %>"
     type="application/atom+xml" />
   <% } %>
