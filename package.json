@@ -13,7 +13,7 @@
   "bugs": {
     "url": "https://github.com/outloudvi/hexo-theme-saas"
   },
-  "homepage": "hhttps://github.com/outloudvi/hexo-theme-saas#readme",
+  "homepage": "https://github.com/outloudvi/hexo-theme-saas#readme",
   "devDependencies": {
     "eslint": "^7.5.0",
     "stylelint": "^13.6.1",
@@ -21,6 +21,7 @@
     "stylelint-config-standard": "^20.0.0"
   },
   "dependencies": {
-    "bulma": "^0.9.0"
+    "bulma": "^0.9.0",
+    "hexo-renderer-scss": "^1.2.0"
   }
 }

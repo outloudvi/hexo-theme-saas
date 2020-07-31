@@ -14,25 +14,25 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: hexojs/hexo-theme-unit-test
-          path: .
-
+          path: "."
+      
       - name: Checkout theme
         uses: actions/checkout@v2
         with:
-          path: theme/landscape
+          path: themes/saas
 
       - name: Install and build
         run: |
           pwd
-          ls -lahR
-          pushd theme/landscape
+          sed -i 's/url: http:\/\/yoursite.com/url: https:\/\/outloudvi.github.io\/hexo-theme-saas\//' _config.yml
+          sed -i 's/root: \//root: \/hexo-theme-saas\//' _config.yml
+          sed -i 's/theme: landscape/theme: saas/' _config.yml
+          cat _config.yml
           npm install
-          popd
-          pwd
-          npm install
-          ls -lah
+          npm install hexo-renderer-sass bulma
           sudo npm install -g hexo-cli
           hexo generate
+          ls -lah public/
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
@@ -40,3 +40,4 @@ jobs:
           SSH: false
           BRANCH: gh-pages
           FOLDER: public
+          SINGLE_COMMIT: true
