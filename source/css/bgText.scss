@@ -29,7 +29,7 @@
 
 .bgText {
   font-size: 2rem;
-  opacity: 0.2;
+  opacity: var(--bgtext-opacity);
   pointer-events: none;
   position: absolute;
   user-select: none;

@@ -13,6 +13,7 @@
   --widget-success-bgcolor: #48c774;
   --widget-warning-bgcolor: #ffdd57;
   --widget-danger-bgcolor: #f14668;
+  --bgtext-opacity: 0.3;
 }
 
 @mixin dark-color-scheme {
@@ -28,6 +29,7 @@
   --widget-success-bgcolor: #328f52;
   --widget-warning-bgcolor: #e8ca53;
   --widget-danger-bgcolor: #c43854;
+  --bgtext-opacity: 0.2;
 }
 
 // We need to give it a color value. Don't worry, it will be overriden later.
