@@ -16,7 +16,7 @@
         </div>
     </div>
     <a href="<%- url_for(post.path) %>">
-        <h2 class="title is-4"><%= post.title %></h2>
+        <h2 class="title is-4"><%= post.title || "Untitled" %></h2>
     </a>
     <% if (post.excerpt) { %>
     <div class="mx-1 my-3"><%- post.excerpt %></div>
