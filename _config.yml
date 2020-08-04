@@ -8,6 +8,7 @@ license:
 index_post_count: 5
 tag_post_count: 3
 read_cpm: 220
+old_post_before: 730
 
 paths:
   tags: tags

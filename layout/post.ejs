@@ -18,6 +18,14 @@
                     <%- partial('_partial/word_count', {post: page}) %>
                 </span>
             </div>
+            <% const publish_time_diff = moment().diff(page.date, 'days') %>
+            <% if (theme.old_post_before && publish_time_diff > theme.old_post_before) { %>
+            <div class="notification is-warning is-light">
+                <p>This post is published over <%= theme.old_post_before %> days ago since the last update. Therefore,
+                    information in
+                    this post might be outdated.</p>
+            </div>
+            <% } %>
             <hr>
             <% if (toc(page.content).length > 0) { %>
             <div class="card mb-5">
