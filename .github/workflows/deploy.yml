@@ -13,9 +13,9 @@ jobs:
       - name: Checkout unit test
         uses: actions/checkout@v2
         with:
-          repository: hexojs/hexo-theme-unit-test
           path: "."
-      
+          ref: demo-src
+
       - name: Checkout theme
         uses: actions/checkout@v2
         with:
@@ -23,10 +23,6 @@ jobs:
 
       - name: Install and build
         run: |
-          pwd
-          sed -i 's/url: http:\/\/yoursite.com/url: https:\/\/outloudvi.github.io\/hexo-theme-saas\//' _config.yml
-          sed -i 's/root: \//root: \/hexo-theme-saas\//' _config.yml
-          sed -i 's/theme: landscape/theme: saas/' _config.yml
           cat _config.yml
           npm install
           npm install hexo-renderer-sass bulma
