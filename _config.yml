@@ -14,8 +14,7 @@ timezone: ""
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://outloudvi.github.io/hexo-theme-saas
-# root: /hexo-theme-saas/
-# root: /
+root: /hexo-theme-saas/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
