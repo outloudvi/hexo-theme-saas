@@ -18,6 +18,7 @@ extra_header_links:
 
 features:
   hitokoto: false
+  show_url_for_xs: true
 
 # Don't change anything below
 
