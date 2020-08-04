@@ -16,20 +16,20 @@ Simple, awakening and sass-based.
 
 ### For Hexo 5.0.0+:
 
-``` sh
+```sh
 npm install --asdeps hexo-theme-saas hexo-renderer-sass
 # or: yarn add hexo-theme-saas hexo-renderer-sass
 ```
 
 Then change in the `_config.yml`:
 
-``` yml
+```yml
 theme: sass
 ```
 
 ### For all versions of Hexo:
 
-``` sh
+```sh
 git clone https://github.com/outloudvi/hexo-theme-saas.git themes/sass
 npm install --asdeps hexo-renderer-sass
 # or: yarn add hexo-renderer-sass
@@ -37,7 +37,7 @@ npm install --asdeps hexo-renderer-sass
 
 Then change in the `_config.yml`:
 
-``` yml
+```yml
 theme: sass
 ```
 
