@@ -41,6 +41,11 @@ Then change in the `_config.yml`:
 theme: sass
 ```
 
+## Notes
+
+- This theme doesn't use `hexo-generator-index`'s `index_generator` settings.
+- This theme currently don't support categories.
+
 ## License
 
 MIT
