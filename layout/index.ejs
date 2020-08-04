@@ -7,6 +7,8 @@
         <a href="<%- url_for('archives') %>">
             <button class="button is-info is-light mb-4">More posts</button>
         </a>
+        <% if (theme.features.hitokoto) { %>
         <%- partial('_partial/hitokoto') %>
+        <% } %>
     </main>
 </div>

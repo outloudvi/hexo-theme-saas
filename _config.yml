@@ -9,6 +9,16 @@ index_post_count: 5
 tag_post_count: 3
 read_cpm: 220
 
+paths:
+  tags: tags
+  series: series
+
+extra_header_links:
+  GitHub Repo: https://github.com/outloudvi/hexo-theme-saas
+
+features:
+  hitokoto: false
+
 # Don't change anything below
 
 node_sass:
