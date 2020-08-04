@@ -17,7 +17,7 @@ extra_header_links:
   GitHub Repo: https://github.com/outloudvi/hexo-theme-saas
 
 features:
-  hitokoto: false
+  hitokoto: true
   show_url_for_xs: true
   toc: true
   bgtitle: true
