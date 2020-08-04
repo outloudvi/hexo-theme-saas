@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - demo-src
 
 jobs:
   build-and-deploy:
@@ -20,6 +21,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: themes/saas
+          ref: master
 
       - name: Install and build
         run: |
