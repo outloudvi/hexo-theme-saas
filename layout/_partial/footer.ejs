@@ -5,5 +5,8 @@
     <%= theme.license.name %>
     <% if (theme.license.url) { %></a><% } %>
   <% } %>
+  <br>
+  <%= config.title ? config.title + ' p' : 'P' %>owered by <a href="https://hexo.io">Hexo</a> and themed by <a
+    href="https://github.com/outloudvi/hexo-theme-saas">Saas</a>
   <%- partial('scripts_postdoc') %>
 </footer>
