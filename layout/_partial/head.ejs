@@ -3,20 +3,38 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="description" content="Blog of Outvi V." />
-  <link rel="canonical" href="<%= config.url %><%= url_for(page.path) %>" />
-  <!-- title -->
-  <% if (theme.favicon) { %>
-  <link rel="shortcut icon" href="<%= url_for(theme.favicon) %>" />
+  <% let title = config.title %>
+  <% if (page.title) { %>
+  <% title = page.title + " | " + config.title %>
   <% } %>
   <!-- title -->
-  <title><% if (page.title) { %><%= page.title %> | <% } %><%= config.title %></title>
-  <!-- styles -->
-  <%- css('css/core') %>
+  <title><%= title %></title>
   <!-- rss -->
   <% if (theme.rss && config.feed) { %>
   <link rel="alternate" href="<%= url_for(config.feed.path) %>" title="<%= config.title %>"
     type="application/atom+xml" />
   <% } %>
+  <!-- meta -->
+  <% if (theme.favicon) { %>
+  <link rel="shortcut icon" href="<%= url_for(theme.favicon) %>" />
+  <% } %>
+  <meta content="<%= config.description %>" name="description">
+  <meta content="<%= page.keywords || config.keywords %>" name="keywords">
+  <link rel="canonical" href="<%= config.url %><%= url_for(page.path) %>" />
+  <meta content="article" property="og:type">
+  <meta content="<%= title %>" property="og:title">
+  <meta content="<%= config.url %><%= url_for(page.path) %>" property="og:url">
+  <meta content="<%= config.title %>" property="og:site_name">
+  <meta content="<%= config.language %>" property="og:locale">
+  <meta content="<%= page.keywords || config.keywords %>" property="article:tag">
+  <meta content="<%= page.author || config.author %>" property="article:author">
+  <!-- Post-only metas -->
+  <% if (locals.page) { %>
+  <meta content="<%= date_xml(page.date) %>" property="article:published_time">
+  <meta content="<%= date_xml(page.date) %>" property="article:modified_time">
+  <% } %>
+  <!-- styles -->
+  <%- css('css/core') %>
   <%- partial('scripts_predoc') %>
   <!-- Insert your tracking code here -->
 </head>
