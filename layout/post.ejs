@@ -21,6 +21,7 @@
             <hr>
             <% if (toc(page.content).length > 0) { %>
             <div class="card mb-5">
+                <% if (theme.features.toc) { %>
                 <div id="toc" class="card-content py-2">
                     <button id="btnHideToc" class="button is-small is-link is-light mb-2">Hide TOC</button>
                     <button id="btnShowToc" class="button is-small is-link is-light mb-2" style="display: none;">Display
@@ -30,6 +31,7 @@
                         <%- toc(page.content) %>
                     </div>
                 </div>
+                <% } %>
             </div>
             <% } %>
             <article class="content">
