@@ -54,3 +54,11 @@ header.bar {
 .hljs {
   background: none !important;
 }
+
+.notification {
+  @each $name, $pair in $colors {
+    &.is-#{$name}:not(.is-light) {
+      background-color: var(--widget-#{$name}-bgcolor);
+    }
+  }
+}
