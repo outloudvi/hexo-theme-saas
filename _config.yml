@@ -12,10 +12,9 @@ old_post_before: 730
 
 paths:
   tags: tags
-  series: series
+  series: false
 
 extra_header_links:
-  GitHub Repo: https://github.com/outloudvi/hexo-theme-saas
 
 features:
   hitokoto: true
