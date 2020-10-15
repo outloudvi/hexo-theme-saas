@@ -24,13 +24,13 @@ npm install --asdeps hexo-theme-saas hexo-renderer-sass
 Then change in the `_config.yml`:
 
 ```yml
-theme: sass
+theme: saas
 ```
 
 ### For all versions of Hexo:
 
 ```sh
-git clone https://github.com/outloudvi/hexo-theme-saas.git themes/sass
+git clone https://github.com/outloudvi/hexo-theme-saas.git themes/saas
 npm install --asdeps hexo-renderer-sass
 # or: yarn add hexo-renderer-sass
 ```
@@ -38,7 +38,7 @@ npm install --asdeps hexo-renderer-sass
 Then change in the `_config.yml`:
 
 ```yml
-theme: sass
+theme: saas
 ```
 
 ## Notes
