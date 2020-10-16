@@ -1,6 +1,6 @@
 {
   "name": "hexo-theme-saas",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "A simple, awakening and sass-based Hexo theme.",
   "scripts": {
     "stylelint": "stylelint **/*.scss",
