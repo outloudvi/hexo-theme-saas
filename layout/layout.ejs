@@ -8,6 +8,9 @@
         <% } %>
         <%- partial('_partial/header_bar') %>
         <%- body %>
+        <% if (theme.features.comments) { %>
+        <%- partial('_custom/comments') %>
+        <% } %>
         <%- partial('_partial/footer') %>
     </body>
 

@@ -21,6 +21,7 @@ features:
   show_url_for_xs: true
   toc: true
   bgtitle: true
+  comments: false
 
 # Don't change anything below
 
