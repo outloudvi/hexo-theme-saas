@@ -62,3 +62,10 @@ header.bar {
     }
   }
 }
+
+@media (max-width: 768px) {
+  .columns.is-centered {
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+}
