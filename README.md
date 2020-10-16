@@ -41,6 +41,19 @@ Then change in the `_config.yml`:
 theme: saas
 ```
 
+## Editing Custom Components
+
+### Comments
+
+First, enable the comments feature:
+
+``` yml
+features:
+  comments: true
+```
+
+Then, edit `layout/_custom/comments.ejs` to insert your own comment box.
+
 ## Notes
 
 - This theme doesn't use `hexo-generator-index`'s `index_generator` settings.
