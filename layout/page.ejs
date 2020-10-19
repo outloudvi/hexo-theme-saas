@@ -1,14 +1,10 @@
 <div class="columns is-centered is-mobile">
     <main id="recent-post-list" class="column is-two-thirds-tablet is-full-mobile is-half-desktop">
         <div class="box no-box-animation">
-            <h2 class="title is-3"><%= page.title %></h2>
-            <div class="my-3 has-text-grey-dark">
-                <%- partial('_partial/create_update', {post: page}) %>
-                <span class="is-pulled-right is-hidden-mobile">
-                    <%- partial('_partial/word_count', {post: page}) %>
-                </span>
-            </div>
-            <hr>
+            <% if (!page.no_title) { %>
+	        <h2 class="title is-3"><%= page.title %></h2>
+        	<hr>
+            <% } %>
             <article class="content">
                 <%- page.content %>
             </article>
