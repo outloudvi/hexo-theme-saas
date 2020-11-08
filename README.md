@@ -10,7 +10,7 @@ Simple, awakening and sass-based.
 
 ## Demo
 
-[Demo](https://outloudvi.github.io/hexo-theme-saas/)
+[Demo](https://outloudvi.github.io/hexo-theme-saas/) / [Live demo](https://blog.outv.im)
 
 ## Usage
 
