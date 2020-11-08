@@ -1,0 +1,45 @@
+public:
+  blog: Blog
+  home: Home
+  archives: Archives
+  tags: Tags
+  series: Series
+
+index:
+  more: More posts
+
+archive:
+  all_posts: 所有文章
+  all_posts_mo: "Posts in %d/%d"
+  all_posts_yr: "Posts in %d"
+
+series:
+  all_series: All series
+
+tags:
+  all_tags: All tags
+  more:
+    one: "and %d more post..."
+    other: "and %d more posts..."
+
+post:
+  toc: TOC
+  show_toc: Show TOC
+  hide_toc: Hide TOC
+  old_post: This post is published over %d days ago since the last update. Therefore, information in this post might be outdated.
+  permalink: Permalink
+
+footer:
+  line: "Powered by %s, with the %s theme"
+
+partial:
+  created: Created
+  hitokoto: Hitokoto
+  fetch_hito: Fetching hitokoto...
+  word:
+    one: "%d word"
+    other: "%d words"
+  min: "~%d min"
+  page_prev: Prev
+  page_next: Next
+  page: "Page %d/%d"

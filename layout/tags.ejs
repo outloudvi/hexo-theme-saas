@@ -24,7 +24,7 @@
                 <% if (tag.posts.length > tag_post_count) { %>
                 <li>
                     <a href="<%= url_for(`tags/${tag.name}`) %>">
-                        <%= __('tags.more', tag.posts.length-tag_post_count) %>
+                        <%= _p('tags.more', tag.posts.length-tag_post_count) %>
                     </a>
                 </li>
                 <% } %>

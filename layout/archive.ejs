@@ -31,7 +31,7 @@
         <%- partial('_partial/tag_list', {tags: months}) %>
         <%- partial('_partial/post_list') %>
         <% } else { %>
-        <h2 class="title h2">All posts</h2>
+        <h2 class="title h2"><%= __('archive.all_posts') %></h2>
         <% let years = dedup(site.posts.map(x => x.date.year())).sort().map(x => {return {name: x, link: url_for(`/archives/${x}`)} }) %>
         <% years.sort() %>
         <%- partial('_partial/tag_list', {tags: years}) %>
