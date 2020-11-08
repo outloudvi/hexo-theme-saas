@@ -22,6 +22,6 @@
     <% } %>
     <% if (theme.extra_header_links) { %>
     <% Object.entries(theme.extra_header_links).forEach(([title, url]) => { %>
-    <%- partial('_partial/navlink', {url, title: __(title)}) %>
+    <%- partial('_partial/navlink', {url, title: __('custom.' + title)}) %>
     <% })} %>
 </div>
