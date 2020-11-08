@@ -12,16 +12,16 @@
 </header>
 
 <div class="has-text-centered my-3">
-    <%- partial('_partial/navlink', {url: url_for('/'), title: 'Home'}) %>
-    <%- partial('_partial/navlink', {url: url_for('archives'), title: 'Archive'}) %>
+    <%- partial('_partial/navlink', {url: url_for('/'), title: __('public.home')}) %>
+    <%- partial('_partial/navlink', {url: url_for('archives'), title: __('public.archives')}) %>
     <% if (theme.paths.tags) { %>
-    <%- partial('_partial/navlink', {url: url_for(theme.paths.tags), title: 'Tags'}) %>
+    <%- partial('_partial/navlink', {url: url_for(theme.paths.tags), title: __('public.tags')}) %>
     <% } %>
     <% if (theme.paths.series) { %>
-    <%- partial('_partial/navlink', {url: url_for(theme.paths.series), title: 'Series'}) %>
+    <%- partial('_partial/navlink', {url: url_for(theme.paths.series), title: __('public.series')}) %>
     <% } %>
     <% if (theme.extra_header_links) { %>
     <% Object.entries(theme.extra_header_links).forEach(([title, url]) => { %>
-    <%- partial('_partial/navlink', {url, title}) %>
+    <%- partial('_partial/navlink', {url, title: __(title)}) %>
     <% })} %>
 </div>

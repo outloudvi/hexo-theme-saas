@@ -3,22 +3,26 @@
 <div class="columns is-centered is-mobile">
     <main id="archive-list" class="column is-two-thirds-tablet is-full-mobile is-half-desktop">
         <% if (is_month()) { %>
-        <h2 class="title h2">All posts in <%= page.year %>/<%= leftpadZeroForTwo(page.month) %></h2>
+        <h2 class="title h2">
+            <%= _p('archive.all_posts_mo', page.year, page.month) %>
+        </h2>
         <nav class="breadcrumb" aria-label="breadcrumbs">
             <ul>
-                <li><a href="<%= url_for('/') %>">Blog</a></li>
-                <li><a href="<%= url_for('/archives') %>">Archive</a></li>
+                <li><a href="<%= url_for('/') %>"><%= __('public.blog') %></a></li>
+                <li><a href="<%= url_for('/archives') %>"><%= __('public.archives') %></a></li>
                 <li><a href="<%= url_for(`/archives/${page.year}`) %>"><%= page.year %></a></li>
                 <li class="is-active"><a href="#" aria-current="page"><%= leftpadZeroForTwo(page.month) %></a></li>
             </ul>
         </nav>
         <%- partial('_partial/post_list') %>
         <% } else if (is_year()) { %>
-        <h2 class="title h2">All posts in <%= page.year %></h2>
+        <h2 class="title h2">
+            <%= _p('archive.all_posts_yr', page.year) %>
+        </h2>
         <nav class="breadcrumb" aria-label="breadcrumbs">
             <ul>
-                <li><a href="<%= url_for('/') %>">Blog</a></li>
-                <li><a href="<%= url_for('/archives') %>">Archive</a></li>
+                <li><a href="<%= url_for('/') %>"><%= __('public.blog') %></a></li>
+                <li><a href="<%= url_for('/archives') %>"><%= __('public.archives') %></a></li>
                 <li class="is-active"><a href="#" aria-current="page"><%= page.year %></a></li>
             </ul>
         </nav>

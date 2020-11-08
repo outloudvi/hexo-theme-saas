@@ -1,3 +1,2 @@
 <% let len = post.raw.replace(/[ \n]/g,"").length %>
-<%= len %> char, ~<%= Math.floor(len / (theme.read_cpm || 210)) %> min
-to read
+<%= __('partial.word_count', len, Math.floor(len / (theme.read_cpm || 210))) %>

@@ -21,9 +21,7 @@
             <% const publish_time_diff = moment().diff(page.date, 'days') %>
             <% if (theme.old_post_before && publish_time_diff > theme.old_post_before) { %>
             <div class="notification is-warning is-light">
-                <p>This post is published over <%= theme.old_post_before %> days ago since the last update. Therefore,
-                    information in
-                    this post might be outdated.</p>
+                <p><%= __('post.old_post', theme.old_post_before) %></p>
             </div>
             <% } %>
             <hr>
@@ -31,10 +29,13 @@
             <div class="card mb-5">
                 <% if (theme.features.toc) { %>
                 <div id="toc" class="card-content py-2">
-                    <button id="btnHideToc" class="button is-small is-link is-light mb-2">Hide TOC</button>
-                    <button id="btnShowToc" class="button is-small is-link is-light mb-2" style="display: none;">Display
-                        TOC</button>
-                    <div class="bgText">TOC</div>
+                    <button id="btnHideToc" class="button is-small is-link is-light mb-2">
+                        <%= __('post.hide_toc') %>
+                    </button>
+                    <button id="btnShowToc" class="button is-small is-link is-light mb-2" style="display: none;">
+                        <%= __('post.show_toc') %>
+                    </button>
+                    <div class="bgText"><%= __('post.toc') %></div>
                     <div id="tocList" class="content">
                         <%- toc(page.content) %>
                     </div>
@@ -47,7 +48,7 @@
             </article>
             <hr>
             <div class="field">
-                Permalink: <a href="<%= page.permalink %>"><%= page.permalink %></a>
+                <%= __('post.permalink') %>: <a href="<%= page.permalink %>"><%= page.permalink %></a>
             </div>
             <div class="field is-grouped is-grouped-multiline">
                 <div class="control">

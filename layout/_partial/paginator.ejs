@@ -5,21 +5,21 @@
         <p class="control">
             <a href="<%- url_for(page.prev_link) %>">
                 <button class="button is-info is-light">
-                    <span>Prev</span>
+                    <span><%= __('partial.page_prev') %></span>
                 </button>
             </a>
         </p>
         <% } %>
         <p class="control">
             <button class="button is-info is-light">
-                <span>Page <%= page.current %> / <%= page.total %> </span>
+                <span><%= __('partial.page', page.current, page.total) %></span>
             </button>
         </p>
         <% if (page.next) { %>
         <p class="control">
             <a href="<%- url_for(page.next_link) %>">
                 <button class="button is-info is-light">
-                    <span>Next</span>
+                    <span><%= __('partial.page_next') %></span>
                 </button>
             </a>
         </p>

@@ -1,2 +1,2 @@
-<span>Created: <time datetime="<%= date_xml(post.date) %>"
+<span><%= __('partial.created') %> <time datetime="<%= date_xml(post.date) %>"
                 itemprop="dateModified"><%= date(post.date, config.date_format) %></time></span>

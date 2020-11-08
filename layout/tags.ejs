@@ -2,7 +2,7 @@
 
 <div class="columns is-centered is-mobile">
     <main id="archive-list" class="column is-two-thirds-tablet is-full-mobile is-half-desktop">
-        <h2 class="title h2">All posts by tags</h2>
+        <h2 class="title h2"><%= __('tags.all_tags') %></h2>
 
         <%- partial('_partial/tag_list', {tags: site.tags.sort('name', 'asc').map(x => { return {...x, name: '#' + x.name, link: '#tag-' + x.name}; })}) %>
 
@@ -24,8 +24,7 @@
                 <% if (tag.posts.length > tag_post_count) { %>
                 <li>
                     <a href="<%= url_for(`tags/${tag.name}`) %>">
-                        <%= tag.posts.length - tag_post_count %> more
-                        post<%= partial('_partial/plural', {count: tag.posts.length - tag_post_count, es: false}) %>...
+                        <%= __('tags.more', tag.posts.length-tag_post_count) %>
                     </a>
                 </li>
                 <% } %>

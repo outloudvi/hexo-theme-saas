@@ -1,0 +1,39 @@
+public:
+  blog: 博客
+  home: 主页
+  archives: 归档
+  tags: 标签
+  series: 系列
+
+index:
+  more: 更多文章
+
+archive:
+  all_posts_mo: "%d 年 %d 月的所有文章"
+  all_posts_yr: "%d 年的所有文章"
+
+series:
+  all_series: 所有系列
+
+tags:
+  all_tags: 所有标签
+  more: "还有 %d 篇文章..."
+
+post:
+  toc: 目录
+  show_toc: 显示目录
+  hide_toc: 隐藏目录
+  old_post: 本文距离上次更新已经超过 %d 天。因此，其中的信息可能已经过时。
+  permalink: 本文的永久链接
+
+footer:
+  line: "由 %s 驱动，使用 %s 主题"
+
+partial:
+  created: 创建于
+  hitokoto: ヒトコト # Note: use Japanese for all CJK languages
+  fetch_hito: 正在获取一言...
+  word_count: "%d 字，约需 %d 分钟"
+  page_prev: 上一页
+  page_next: 下一页
+  page: "第 %d/%d 页"
