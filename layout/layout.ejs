@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html<%= config.language ? " lang=" + config.language.substring(0, 2) : ""%>>
+<% let lang = config.language %>
+<% if (Array.isArray(lang)) lang = lang[0] %>
+<html<%= lang ? " lang=" + lang.substring(0, 2) : ""%>>
     <%- partial('_partial/head') %>
 
     <body>
