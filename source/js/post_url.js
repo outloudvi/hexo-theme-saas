@@ -8,6 +8,7 @@ if (
     .forEach(function (elem) {
       if (elem.innerText.length === 0) return
       let mat = elem.href.match('^([A-Za-z]*://)?([^/]*)/?')
+      if (new URL(elem.href).hostname == window.location.hostname) return
       if (mat[1] !== 'http://' && mat[1] !== 'https://') return
       if (mat.length == 3) {
         let small = document.createElement('small')
