@@ -1,0 +1,59 @@
+<script>
+  function appendElement(name, attr, val) {
+    const one = document.createElement(name)
+    one[attr] = val
+    document.body.append(one)
+  }
+  window.addEventListener('DOMContentLoaded', () => {
+    if (
+      window.location.pathname.startsWith('/ipfs/') ||
+      window.location.pathname.startsWith('/ipns/')
+    ) {
+      // IPFS/IPFS simed website. CSS & JS needs reloading.
+      console.log(
+        '%cHello, IPFS!',
+        'color: #fff; background-color: #469ea2; font-size: 18px; padding: 12px',
+      )
+      console.log('Applying fixes for IPFS...')
+      let ipfs_domain = window.location.host
+      let ipfs_hash = window.location.pathname.split('/')[2] // IPFS hash
+      let ipfs_type = window.location.pathname.split('/')[1] // ipfs or ipns
+      let ipfs_path_prefix = `/${ipfs_type}/${ipfs_hash}`
+      // eslint-disable-next-line no-inner-declarations
+      function IPFSFixPath(link) {
+        const url = new URL(link)
+        if (url.host === ipfs_domain && !(
+          url.pathname.startsWith('/ipfs/') || url.pathname.startsWith('/ipns/')
+        )) {
+          url.pathname = ipfs_path_prefix + url.pathname
+          return String(url)
+        }
+        return false
+      }
+      [...document.querySelectorAll('script[src]')].map(x => {
+        const fix = IPFSFixPath(x.src)
+        if (fix) {
+          appendElement('script', 'src', IPFSFixPath(x.src))
+        }
+      });
+      [...document.querySelectorAll('link[href]')].map(x => {
+        const fix = IPFSFixPath(x.href)
+        if (fix) {
+          x.href = fix
+        }
+      });
+    } // Hello from Tor
+    if (window.location.hostname.endsWith('.onion')) {
+      console.log(
+        '%cHello, Tor!',
+        'color: #fff; background-color: #59316B; font-size: 18px; padding: 12px',
+      )
+    }
+    if (window.location.hostname.endsWith('.dn42')) {
+      console.log(
+        '%cHello, dn42!',
+        'color: #fff; background-color: #59316B; font-size: 18px; padding: 12px',
+      )
+    }
+  })
+</script>
