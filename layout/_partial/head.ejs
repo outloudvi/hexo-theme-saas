@@ -32,11 +32,11 @@
   <% if (locals.page) { %>
   <meta content="<%= date_xml(page.date) %>" property="article:published_time">
   <meta content="<%= date_xml(page.date) %>" property="article:modified_time">
-    <% if ((is_post()) || (is_page() && (!theme.features?.linkbackPostOnly))) { %>
-      <% if (theme.features?.pingback) { %>
+    <% if ((is_post()) || (is_page() && (!theme.features.linkbackPostOnly))) { %>
+      <% if (theme.features.pingback) { %>
         <link rel="pingback" href="<%= theme.features.pingback %>" />
       <% } %>
-      <% if (theme.features?.webmention) { %>
+      <% if (theme.features.webmention) { %>
         <link rel="webmention" href="<%= theme.features.webmention %>" />
       <% } %>
     <% } %>

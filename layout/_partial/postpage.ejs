@@ -4,6 +4,6 @@
     <%- partial('_custom/comments') %>
 <% } %>
 
-<% if (((is_post()) || (is_page() && (!theme.features?.linkbackPostOnly))) && features["webmention"]) { %>
+<% if (((is_post()) || (is_page() && (!theme.features.linkbackPostOnly))) && features["webmention"]) { %>
     <%- partial('_custom/webmention') %>
 <% } %>
