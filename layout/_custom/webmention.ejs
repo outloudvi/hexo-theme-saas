@@ -1,0 +1,76 @@
+<div class="columns is-centered is-mobile">
+    <div class="column is-two-thirds-tablet is-full-mobile is-half-desktop">
+        <div class="box no-box-animation content">
+            <h2 class="title is-4">
+                <%= __('custom.webmention') %>
+            </h2>
+            <ul>
+                <!-- write and display the responses here -->
+            </ul>
+            <div>
+                <p>
+                    <%= __('custom.webmention_submit') %>
+                </p>
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <input id="inputSubmitWebmention" class="input" type="text"
+                            placeholder="https://example.com/posts/your-reply">
+                    </div>
+                    <div class="control">
+                        <a id="aSubmitWebmention" class="button is-link">
+                            <%= __('partial.submit') %>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (() => {
+        const btnSubmit = document.querySelector('#aSubmitWebmention')
+        const showMsg = (type, msg) => {
+            btnSubmit.classList.remove('is-link')
+            btnSubmit.classList.add(`is-${type}`)
+            const old = btnSubmit.innerHTML
+            btnSubmit.innerHTML = msg
+            setTimeout(() => {
+                btnSubmit.classList.remove(`is-${type}`)
+                btnSubmit.classList.add('is-link')
+                btnSubmit.innerHTML = old
+            }, 1000)
+        }
+        btnSubmit.addEventListener('click', async () => {
+            btnSubmit.classList.add('is-loading')
+            btnSubmit.setAttribute('disabled', '')
+            const url = document.querySelector('#inputSubmitWebmention').value
+            let urlObj = undefined
+            try {
+                urlObj = new URL(url)
+            } catch (_) {
+                showMsg("danger", "<%= __('custom.webmention_status.bad_url') %>")
+            }
+            if (urlObj) {
+                const form = []
+                form.push(`source=${encodeURIComponent(String(url))}`)
+                form.push(`target=${encodeURIComponent(String(document.location))}`)
+                const reply = await fetch("<%= theme.features.webmention %>", {
+                    body: form.join('&'),
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    method: "POST"
+                })
+                if (reply.status >= 200 && reply.status <= 300) {
+                    showMsg("success", "<%= __('custom.webmention_status.good') %>")
+                } else {
+                    showMsg("danger", "<%= __('custom.webmention_status.bad') %>")
+
+                }
+            }
+            btnSubmit.removeAttribute('disabled', '')
+            btnSubmit.classList.remove('is-loading')
+        })
+    })()
+</script>

@@ -16,3 +16,10 @@ hexo.extend.helper.register('sortByKey', function (items, key) {
   }
   return ret
 })
+
+hexo.extend.helper.register('getFeatureList', function (page, theme) {
+  let ret = {}
+  Object.assign(ret, theme.features)
+  if (page && page.features) Object.assign(ret, page.features)
+  return ret
+})

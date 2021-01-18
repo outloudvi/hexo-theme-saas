@@ -43,3 +43,12 @@ partial:
   page_prev: Prev
   page_next: Next
   page: "Page %d/%d"
+  submit: Submit
+
+custom:
+  webmention: Webmention
+  webmention_submit: "To submit/delete a response to this post, tell me the link to your post:"
+  webmention_status:
+    bad_url: "Invalid URL."
+    good: "Submitted!"
+    bad: "Failed to submit."

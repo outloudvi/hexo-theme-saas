@@ -54,6 +54,21 @@ features:
 
 Then, edit `layout/_custom/comments.ejs` to insert your own comment box.
 
+### Webmention / Pingback
+
+First, set up the configurations:
+
+``` yml
+features:
+  linkbackPostOnly: false
+  webmention: https://webmention.io/example.com/webmention
+  pingback: https://webmention.io/example.com/xmlrpc
+```
+
+Then, edit `layout/_custom/webmention.ejs` to insert the webmention list.
+
+A sample Webmention submission logic is also provided, which you might want to modify.
+
 ## Notes
 
 - This theme doesn't use `hexo-generator-index`'s `index_generator` settings.

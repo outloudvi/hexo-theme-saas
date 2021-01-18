@@ -21,7 +21,12 @@ features:
   show_url_for_xs: true
   toc: true
   bgtitle: true
-  comments: false
+  comments: false # Also: edit themes/saas/layout/_custom/comments.ejs
+
+  # Linkback
+  #linkbackPostOnly: false
+  #webmention: https://webmention.io/example.com/webmention
+  #pingback: https://webmention.io/example.com/xmlrpc
 
 # Don't change anything below
 

@@ -10,9 +10,7 @@
         <% } %>
         <%- partial('_partial/header_bar') %>
         <%- body %>
-        <% if (is_post() && theme.features.comments) { %>
-        <%- partial('_custom/comments') %>
-        <% } %>
+        <%- partial('_partial/postpage') %>
         <%- partial('_partial/footer') %>
     </body>
 

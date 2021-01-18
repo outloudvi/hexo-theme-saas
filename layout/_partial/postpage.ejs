@@ -1,0 +1,9 @@
+<% const features = getFeatureList(locals.page, locals.theme) %>
+
+<% if (is_page() && features["comments"]) { %>
+    <%- partial('_custom/comments') %>
+<% } %>
+
+<% if (((is_post()) || (is_page() && (!theme.features?.linkbackPostOnly))) && features["webmention"]) { %>
+    <%- partial('_custom/webmention') %>
+<% } %>

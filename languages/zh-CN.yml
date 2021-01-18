@@ -43,3 +43,12 @@ partial:
   page_prev: 上一页
   page_next: 下一页
   page: "第 %d/%d 页"
+  submit: 提交
+
+custom:
+  webmention: Webmention
+  webmention_submit: "欲提交/移除对本文的回应，请于此提交您的文章地址："
+  webmention_status:
+    bad_url: "URL 无效。"
+    good: "已提交！"
+    bad: "提交失败。"
