@@ -1,6 +1,6 @@
 <footer id="footer" class="has-text-centered my-4">
-  &copy; 2015 - <%= new Date().getFullYear() %> <%= config.author ||
-  config.title %><% if (theme.license) { %>,
+  &copy; 2015 - <%= new Date().getFullYear() %>
+    <%= config.author || config.title %><% if (theme.license) { %>,
   <% if (theme.license.url) { %><a href="<%= url_for(theme.license.url) %>"><% } %>
     <%= theme.license.name %>
     <% if (theme.license.url) { %></a><% } %>
@@ -9,4 +9,7 @@
   <%= config.title ? config.title + ' ' : '' %>
   <%- __('footer.line', '<a href="https://hexo.io">Hexo</a>', '<a href="https://github.com/outloudvi/hexo-theme-saas">Saas</a>') %>
   <%- partial('scripts_postdoc') %>
+  <% if (is_page() || is_post()) { %>
+    <%- js('js/headerAnim') %>
+  <% } %>
 </footer>
