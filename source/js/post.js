@@ -48,8 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('scroll', () => {
   const scrollY = window.scrollY
   if (scrollY > 180) {
-    document.querySelector('#headerBar').classList.add('sticky')
+    document.querySelector('#headerItems').classList.add('sticky')
   } else {
-    document.querySelector('#headerBar').classList.remove('sticky')
+    document.querySelector('#headerItems').classList.remove('sticky')
   }
+  const perc = window.scrollY / window.scrollMaxY
+  document.querySelector('#progressBar').style.marginRight = `${String(
+    (1 - perc) * 100,
+  )}vw`
 })
