@@ -43,9 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
       x.parentElement.append(bgText)
     })
   }
+
+  handlerScroll()
 })
 
-document.addEventListener('scroll', () => {
+function handlerScroll() {
   const scrollY = window.scrollY
   if (scrollY > 180) {
     document.querySelector('#headerItems').classList.add('sticky')
@@ -56,4 +58,8 @@ document.addEventListener('scroll', () => {
   document.querySelector('#progressBar').style.marginRight = `${String(
     (1 - perc) * 100,
   )}vw`
+}
+
+document.addEventListener('scroll', () => {
+  handlerScroll()
 })
