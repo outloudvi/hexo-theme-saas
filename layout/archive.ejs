@@ -1,8 +1,8 @@
 <%- partial('_partial/header') %>
 
-<div class="columns is-centered is-mobile">
-    <main id="archive-list" class="column is-two-thirds-tablet is-full-mobile is-half-desktop">
-        <% if (is_month()) { %>
+    <div class="columns is-centered is-mobile">
+        <main id="archive-list" class="column is-two-thirds-tablet is-full-mobile is-half-desktop">
+            <% if (is_month()) { %>
         <h2 class="title h2">
             <%= _p('archive.all_posts_mo', page.year, page.month) %>
         </h2>
@@ -26,7 +26,7 @@
                 <li class="is-active"><a href="#" aria-current="page"><%= page.year %></a></li>
             </ul>
         </nav>
-        <% let months = dedup(page.posts.map(x => x.date.month() + 1)).sort().map(x => { x = leftpadZeroForTwo(x); return {name: `${page.year}/${x}`, link: url_for(`/archives/${page.year}/${x}`)} }) %>
+        <% let months = dedup(site.posts.filter(x => x.date.year() === page.year).map(x => x.date.month() + 1)).sort().map(x => { x = leftpadZeroForTwo(x); return {name: `${page.year}/${x}`, link: url_for(`/archives/${page.year}/${x}`)} }) %>
         <% months = sortByKey(months, "name") %>
         <%- partial('_partial/tag_list', {tags: months}) %>
         <%- partial('_partial/post_list') %>
