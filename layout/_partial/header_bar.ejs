@@ -5,7 +5,7 @@
                 <%= config.title %>
             </a>
         </div>
-        <% let title = page?.title %>
+        <% let title = (locals.page || {}).title || "" %>
         <% if (title) { %>
             <div id="barTitle" class="hidOnDemand">
                 <%= title %>

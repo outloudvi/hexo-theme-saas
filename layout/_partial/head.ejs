@@ -23,7 +23,8 @@
   <link rel="canonical" href="<%= config.url %><%= url_for(page.path) %>" />
   <% if (is_post()) { %>
     <meta content="article" property="og:type">
-    <meta content="article:published_time" property="<%= date_xml(locals.post?.date) %>">
+    <% const xdate = (locals.post || {}).date || "" %>
+    <meta content="article:published_time" property="<%= date_xml(xdate) %>">
   <% } %>
   <meta content="<%= title %>" property="og:title">
   <meta content="<%= config.url %><%= url_for(page.path) %>" property="og:url">
