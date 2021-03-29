@@ -44,6 +44,7 @@ partial:
   page_next: 下一页
   page: "第 %d/%d 页"
   submit: 提交
+  loading: 加载中
 
 custom:
   webmention: Webmention

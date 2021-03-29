@@ -5,6 +5,9 @@
     <%- partial('_partial/head') %>
 
     <body>
+        <div id="loadwait">
+            <%= __('partial.loading') %>
+        </div>
         <% if (theme.features.bgtitle) { %>
         <div id="bgTitle" class="bgText has-text-grey-lighter"><%= config.title %></div>
         <% } %>

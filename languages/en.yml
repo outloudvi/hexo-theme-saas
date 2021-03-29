@@ -44,6 +44,7 @@ partial:
   page_next: Next
   page: "Page %d/%d"
   submit: Submit
+  loading: Loading
 
 custom:
   webmention: Webmention
