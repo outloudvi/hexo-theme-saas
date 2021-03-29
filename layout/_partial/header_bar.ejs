@@ -1,12 +1,18 @@
-<header class="bar">
-    <div>
+<header id="headerBar" class="bar">
+    <div id="headerTitle">
         <a href="<%- url_for('/') %>">
             <%= config.title %>
         </a>
     </div>
+    <% let title = page?.title %>
+    <% if (title) { %>
+        <div id="barTitle">
+            <%= title %>
+        </div>
+    <% } %>
     <div id="toggleColorScheme">
         <!-- https://cdn.jsdelivr.net/npm/ionicons@5.1.2/dist/svg/moon-outline.svg -->
-        <div class="btnToggleDark">
+        <div class="btnToggleDark" tabindex="0">
             <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
                 <title>ionicons-v5-j</title>
                 <path
@@ -15,7 +21,7 @@
             </svg>
         </div>
         <!-- https://cdn.jsdelivr.net/npm/ionicons@5.1.2/dist/svg/sunny-outline.svg -->
-        <div class="btnToggleLight">
+        <div class="btnToggleLight" tabindex="0">
             <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
                 <title>ionicons-v5-q</title>
                 <line x1="256" y1="48" x2="256" y2="96"

@@ -44,3 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 })
+
+document.addEventListener('scroll', () => {
+  const scrollY = window.scrollY
+  if (scrollY > 180) {
+    document.querySelector('#headerBar').classList.add('sticky')
+  } else {
+    document.querySelector('#headerBar').classList.remove('sticky')
+  }
+})

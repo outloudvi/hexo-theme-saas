@@ -44,7 +44,7 @@
 
   function showClass(cls) {
     Array.from(document.getElementsByClassName(cls)).forEach(
-      (x) => (x.style.display = 'block'),
+      (x) => (x.style.display = 'flex'),
     )
   }
 
