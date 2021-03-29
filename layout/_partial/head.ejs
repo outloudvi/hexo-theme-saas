@@ -21,7 +21,10 @@
   <meta content="<%= config.description %>" name="description">
   <meta content="<%= page.keywords || config.keywords %>" name="keywords">
   <link rel="canonical" href="<%= config.url %><%= url_for(page.path) %>" />
-  <meta content="article" property="og:type">
+  <% if (is_post()) { %>
+    <meta content="article" property="og:type">
+    <meta content="article:published_time" property="<%= date_xml(locals.post?.date) %>">
+  <% } %>
   <meta content="<%= title %>" property="og:title">
   <meta content="<%= config.url %><%= url_for(page.path) %>" property="og:url">
   <meta content="<%= config.title %>" property="og:site_name">
