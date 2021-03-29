@@ -15,30 +15,42 @@
   font-size: 1.1rem;
   justify-content: space-between;
   padding: 2vh 2vw;
+}
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
+  #headerItems {
     padding: 2vh 5vw;
   }
+}
 
-  #barTitle {
-    opacity: 0;
-    transition: opacity ease-in-out 0.3s;
-    display: none;
+#progressBar {
+  background-color: var(--header-progress-color);
+  height: 1.2px;
+}
+
+.hidOnDemand {
+  display: none;
+  opacity: 0;
+  transition: opacity ease-in-out 0.3s;
+}
+
+@media (min-width: 1024px) {
+  #headerItems {
+    transition: all ease-in-out 0.3s;
   }
 
-  @media (min-width: 1024px) {
-    transition: all ease-in-out 0.3s;
+  .hidOnDemand {
+    display: block;
+  }
 
-    #barTitle {
-      display: block;
-    }
-
-    &.sticky {
-      #barTitle {
-        opacity: 1;
-      }
+  .sticky {
+    #headerItems {
       background-color: var(--header-bar-color);
       box-shadow: 2px 0 7px 7px rgba(0, 0, 0, 0.2);
+    }
+
+    .hidOnDemand {
+      opacity: 1;
     }
   }
 }
@@ -59,15 +71,5 @@
   svg {
     height: 1.4rem;
     width: 1.4rem;
-  }
-}
-
-#progressBar {
-  background-color: var(--header-progress-color);
-  display: none;
-  height: 1.2px;
-
-  @media (max-width: 1024px) {
-    display: none;
   }
 }

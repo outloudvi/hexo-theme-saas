@@ -7,7 +7,7 @@
         </div>
         <% let title = page?.title %>
         <% if (title) { %>
-            <div id="barTitle">
+            <div id="barTitle" class="hidOnDemand">
                 <%= title %>
             </div>
         <% } %>
@@ -47,5 +47,5 @@
             </span>
         </div>
     </div>
-    <div id="progressBar"></div>
+    <div id="progressBar" class="hidOnDemand"></div>
 </header>
