@@ -21,11 +21,6 @@
   <meta content="<%= config.description %>" name="description">
   <meta content="<%= page.keywords || config.keywords %>" name="keywords">
   <link rel="canonical" href="<%= config.url %><%= url_for(page.path) %>" />
-  <% if (is_post()) { %>
-    <meta content="article" property="og:type">
-    <% const xdate = (locals.post || {}).date || "" %>
-    <meta content="article:published_time" property="<%= date_xml(xdate) %>">
-  <% } %>
   <meta content="<%= title %>" property="og:title">
   <meta content="<%= config.url %><%= url_for(page.path) %>" property="og:url">
   <meta content="<%= config.title %>" property="og:site_name">
@@ -34,8 +29,9 @@
   <meta content="<%= page.author || config.author %>" property="article:author">
   <!-- Post-only metas -->
   <% if (locals.page) { %>
+  <meta content="article" property="og:type">
   <meta content="<%= date_xml(page.date) %>" property="article:published_time">
-  <meta content="<%= date_xml(page.date) %>" property="article:modified_time">
+  <meta content="<%= date_xml(page.updated) %>" property="article:modified_time">
     <% if ((is_post()) || (is_page() && (!theme.features.linkbackPostOnly))) { %>
       <% if (theme.features.pingback) { %>
         <link rel="pingback" href="<%= theme.features.pingback %>" />
