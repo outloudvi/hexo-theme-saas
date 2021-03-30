@@ -1,6 +1,7 @@
 @import '../colors';
 
 #headerBar {
+  pointer-events: none;
   top: 0;
   width: 100%;
   z-index: 3;
@@ -57,13 +58,14 @@
 
 #headerTitle,
 #toggleColorScheme {
+  pointer-events: all;
   width: 120px;
 }
 
 #toggleColorScheme {
+  align-items: center;
   display: flex;
   justify-content: right;
-  align-items: center;
 
   & > div:hover {
     cursor: pointer;
