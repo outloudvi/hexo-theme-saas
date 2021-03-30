@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // eslint-disable-next-line no-undef
   if (hljs) {
     // eslint-disable-next-line no-undef
-    hljs.initHighlighting()
+    hljs.highlightAll()
     document.querySelectorAll('pre > code').forEach((x) => {
       x.parentElement.style.borderRadius = '3px'
       x.parentElement.style.padding = '1.5px'

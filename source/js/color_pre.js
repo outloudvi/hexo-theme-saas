@@ -57,8 +57,16 @@
       showClass(TOGGLE_BUTTON_ID[LIGHT])
     }
   }
+
+  function initBulmaTheme() {
+    document.querySelectorAll('link[data-color-scheme]').forEach((v) => {
+      v.setAttribute('data-target', v.getAttribute('href'))
+    })
+  }
+
   function changeBulmaTheme(light) {
-    if (light == LIGHT) {
+    const useDark = light !== LIGHT
+    if (!useDark) {
       document.querySelectorAll('.is-light-but-not-now').forEach((node) => {
         let classes = node.className
           .split(' ')
@@ -75,6 +83,15 @@
         node.className = classes.join(' ')
       })
     }
+
+    document.querySelectorAll('link[data-color-scheme]').forEach((v) => {
+      if (light === v.getAttribute('data-color-scheme')) {
+        v.href = v.getAttribute('data-target')
+      } else {
+        v.href = ''
+      }
+      v.removeAttribute('media')
+    })
   }
 
   function forceColorScheme(light, write = true) {
@@ -83,25 +100,24 @@
     if (write) storageWrite(light)
     setButtonVisibility(light)
     changeBulmaTheme(light)
-    console.log(`You are now at the ${light} side!`)
+    if (light == DARK) {
+      console.log(
+        'You are now at the %cdark%c side!',
+        'color: #fff; background-color: #222;',
+        '',
+      )
+      CSS_BASE_ELEMENT.setAttribute(DATA_NAME, DARK)
+    } else {
+      console.log(
+        'You are now at the %clight%c side!',
+        'color: #22966e; background-color: #eee;',
+        '',
+      )
+      CSS_BASE_ELEMENT.setAttribute(DATA_NAME, LIGHT)
+    }
   }
 
   let defaultScheme = getDefaultScheme()
-  if (defaultScheme == DARK) {
-    console.log(
-      'You are at the %cdark%c side!',
-      'color: #fff; background-color: #222;',
-      '',
-    )
-    CSS_BASE_ELEMENT.setAttribute(DATA_NAME, 'dark')
-  } else {
-    console.log(
-      'You are at the %clight%c side!',
-      'color: #22966e; background-color: #eee;',
-      '',
-    )
-    CSS_BASE_ELEMENT.setAttribute(DATA_NAME, 'light')
-  }
 
   let currentTheme = defaultScheme
   let storageTheme = storageRead()
@@ -121,7 +137,8 @@
   window.forceColorScheme = forceColorScheme
   window.postLoad = () => {
     setButtonVisibility(currentTheme)
+    initBulmaTheme()
     changeBulmaTheme(currentTheme)
-    return defaultScheme == storageTheme
+    return defaultScheme === storageTheme
   }
 })()
