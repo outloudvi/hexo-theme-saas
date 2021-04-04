@@ -33,3 +33,7 @@
 code {
   color: var(--red);
 }
+
+.notification code, .notification pre {
+  background-color: var(--bg);
+}
