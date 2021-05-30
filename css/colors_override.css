@@ -1,0 +1,25 @@
+.has-text-grey-dark {
+  color: var(--body-color) !important; }
+
+.box .notification {
+  border-radius: 0;
+  margin-left: -1.25rem;
+  margin-right: -1.25rem; }
+
+.tag:not(body).is-delete:hover, .tag:not(body).is-delete:focus {
+  background-color: #e9e9e9; }
+
+.tag:not(body).is-delete:active {
+  background-color: #ddd; }
+
+:root[data-color-scheme='dark'] .tag:not(body).is-delete:hover, :root[data-color-scheme='dark'] .tag:not(body).is-delete:focus {
+  background-color: #272727; }
+
+:root[data-color-scheme='dark'] .tag:not(body).is-delete:active {
+  background-color: #333; }
+
+code {
+  color: var(--red); }
+
+.notification code, .notification pre {
+  background-color: var(--bg); }

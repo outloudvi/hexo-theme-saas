@@ -1,0 +1,33 @@
+#bgTitle {
+  font-size: 12rem;
+  max-width: 100vw;
+  overflow: hidden;
+  top: -130px;
+  z-index: -1; }
+
+#hitokotoQuote,
+#toc {
+  position: relative; }
+
+#hitokotoQuote .bgText {
+  bottom: 3px;
+  right: 15px; }
+
+#toc .bgText {
+  right: 15px;
+  top: 3px; }
+
+.bgText.codeLang {
+  color: #3298dc;
+  font-size: 0.75rem;
+  opacity: 0.8;
+  right: 15px;
+  top: 3px; }
+
+.bgText {
+  font-size: 2rem;
+  opacity: var(--bgtext-opacity);
+  pointer-events: none;
+  position: absolute;
+  user-select: none;
+  z-index: 0; }

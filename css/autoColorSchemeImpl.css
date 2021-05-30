@@ -1,0 +1,5 @@
+:root {
+  --preferred-color-theme: light; }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --preferred-color-theme: dark; } }
