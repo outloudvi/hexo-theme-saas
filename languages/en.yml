@@ -34,6 +34,7 @@ footer:
 
 partial:
   created: Created
+  revised: Revised
   hitokoto: Hitokoto
   fetch_hito: Fetching hitokoto...
   word:

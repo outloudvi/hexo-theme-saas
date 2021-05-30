@@ -1,2 +1,11 @@
-<span><%= __('partial.created') %> <time datetime="<%= date_xml(post.date) %>"
-                itemprop="dateModified"><%= date(post.date, config.date_format) %></time></span>
+<span
+  ><%= __('partial.created') %>
+  <time datetime="<%= date_xml(post.date) %>" itemprop="dateModified"
+    ><%= date(post.date, config.date_format) %></time
+  ><% if (post.revised) { %> | <%= __('partial.revised') %><time
+    datetime="<%= date_xml(moment(post.revised)) %>"
+    itemprop="dateModified"
+  >
+    <%= date(moment(post.revised), config.date_format) %></time
+  ><% } %></span
+>
