@@ -1,6 +1,6 @@
 # hexo-theme-saas
 
-[![David deps](https://img.shields.io/david/outloudvi/hexo-theme-saas.svg?style=flat)](https://david-dm.org/outloudvi/hexo-theme-saas)
+**Note: this project has been deprecated since I don't personally use it anymore.**
 
 [![](https://nodei.co/npm/hexo-theme-saas.png?global=true)](https://nodei.co/npm/hexo-theme-saas)
 
@@ -10,7 +10,7 @@ Simple, awakening and sass-based.
 
 ## Demo
 
-[Demo](https://outloudvi.github.io/hexo-theme-saas/) / [Live demo](https://blog.outv.im)
+[Demo](https://outloudvi.github.io/hexo-theme-saas/)
 
 ## Usage
 
